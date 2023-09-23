@@ -1,6 +1,6 @@
 import java.util.Scanner;
 // https://codeforces.com/group/j7YsoIFtw4/contest/104393/problem/H
-class H {
+public final class H {
     /**
      * N baskets in a row with Ci max capacity
      * choose basket b and adds Ad apples
@@ -14,37 +14,37 @@ class H {
      * D = 1 L = 2 R = 3
      */
 
-    public void Solution(String input) {
+    public static void Solution(String input) {
         Scanner sc = new Scanner(input);
-        int N = sc.nextInt();
-        int M = sc.nextInt();
-        int Q = sc.nextInt();
+        int numberOfBaskets = sc.nextInt();
+        int daysInHarvestingSeason = sc.nextInt();
+        int questions = sc.nextInt();
 
-        int[] C = new int[N];
-        for (int i = 0; i < N; i++) {
-            C[i] = sc.nextInt();
+        int[] capacityOfBasket = new int[numberOfBaskets];
+        for (int i = 0; i < numberOfBaskets; i++) {
+            capacityOfBasket[i] = sc.nextInt();
         }
 
-        int[][] ba = new int[M][2];
-        for (int j = 0; j < M; j++) {
+        int[][] ba = new int[daysInHarvestingSeason][2];
+        for (int j = 0; j < daysInHarvestingSeason; j++) {
             ba[j][0] = sc.nextInt();
             ba[j][1] = sc.nextInt();
         }
 
-        int[][] DLR = new int[Q][3];
-        for (int k = 0; k < Q; k++) {
+        int[][] DLR = new int[questions][3];
+        for (int k = 0; k < questions; k++) {
             DLR[k][0] = sc.nextInt();
             DLR[k][1] = sc.nextInt();
             DLR[k][2] = sc.nextInt();
         }
 
-        for (int i = 0; i < Q; i++) {
-            System.out.println(calculate(ba, DLR, C, N, M, Q));
+        for (int i = 0; i < questions; i++) {
+            System.out.println(calculate(ba, DLR, capacityOfBasket, numberOfBaskets, daysInHarvestingSeason, questions));
         }
         sc.close();
     }
 
-    public int calculate(int[][] ba, int[][] DLR, int[] C, int N, int M, int Q) {
+    public static int calculate(int[][] ba, int[][] DLR, int[] C, int N, int M, int Q) {
         int[] apples = new int[N];
         for (int i = 0; i < M; i++) {
             int basket = ba[i][0];
@@ -69,5 +69,11 @@ class H {
             return(total);
         }
         return -1;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        Solution(input);
     }
 }
