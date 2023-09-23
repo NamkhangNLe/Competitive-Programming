@@ -1,3 +1,5 @@
+// https://codeforces.com/group/j7YsoIFtw4/contest/104393/problem/G
+
 import java.util.ArrayList;
 import java.util.List;
 
