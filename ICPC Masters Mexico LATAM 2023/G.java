@@ -6,8 +6,12 @@ class G {
         List<Integer> weights = new ArrayList<>();
         double max = Math.ceil(input / 2);
 
-        for (int i = 0; i < max; i++) {
-
+        for (int i = 0; i < max + 1; i++) {
+            int current = ((i + 1) * (i + 1));
+            int found = search(input + current, i + 1);
+            if (found != -1) {
+                weights.add(found);
+            }
         }
 
         System.out.println(weights.size());
